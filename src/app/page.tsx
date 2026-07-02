@@ -1,6 +1,7 @@
 "use client";
 
-import { Brain, Activity, Moon, Droplets, Heart, Zap, Phone, ShieldCheck, Mail, ArrowRight } from "lucide-react";
+import { Brain, Activity, Moon, Droplets, Heart, Zap, Phone, ShieldCheck, Mail, ArrowRight, ArrowUp } from "lucide-react";
+import Image from "next/image";
 import Hero3D from "../components/Hero3D";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { LanguageToggle } from "../components/LanguageToggle";
@@ -111,9 +112,9 @@ export default function LandingPage() {
         </section>
 
         {/* 3. Design & Display */}
-        <section className="py-24 bg-indigo-50/60 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <section className="pt-24 bg-indigo-50/60 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="reveal text-center max-w-3xl mx-auto mb-16">
+            <div className="reveal text-center max-w-3xl mx-auto mb-0">
               <h2 className="text-4xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
                 {t.design.title1} <br />
                 <span className="text-indigo-600 dark:text-indigo-400">{t.design.title2}</span>
@@ -121,6 +122,23 @@ export default function LandingPage() {
               <p className="text-xl text-slate-600 dark:text-slate-400">
                 {t.design.desc}
               </p>
+            </div>
+            
+            {/* 4/5 Watch Image at bottom */}
+            <div className="reveal flex justify-center relative -mt-4 sm:-mt-8 md:-mt-12">
+              {/* Glow background for light mode so white band doesn't blend in */}
+              <div className="absolute top-1/4 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-indigo-200/50 dark:hidden blur-3xl rounded-full -z-10"></div>
+              
+              <div className="w-[280px] sm:w-[400px] md:w-[500px] h-[224px] sm:h-[320px] md:h-[400px] overflow-hidden relative z-10">
+                <Image 
+                  src="/awp5forward.png" 
+                  alt="Apple Watch Series 5 Design" 
+                  width={500} 
+                  height={500} 
+                  className="w-full h-auto drop-shadow-2xl" 
+                  priority
+                />
+              </div>
             </div>
           </div>
         </section>
