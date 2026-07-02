@@ -56,7 +56,7 @@ function WatchWrapper() {
 export default function Smartwatch3D() {
   return (
     <div
-      className="w-full h-[600px] relative"
+      className="w-full h-150 relative"
       style={{ touchAction: "none" }}
     >
       <Canvas
@@ -80,7 +80,7 @@ export default function Smartwatch3D() {
         <React.Suspense fallback={null}>
           <PresentationControls
             global
-            rotation={[0, 0.2, 0]}
+            rotation={[0.3, -0.7, 0]}
             polar={[-Math.PI / 4, Math.PI / 4]}
             azimuth={[-Math.PI / 2, Math.PI / 2]}
           >
