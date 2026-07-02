@@ -16,7 +16,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "PakWatch - Intelligence on your wrist",
-  description: "Meet the world's most advanced AI-powered health smartwatch.",
+  description: "Khám phá chiếc đồng hồ thông minh theo dõi sức khỏe ứng dụng AI tân tiến nhất thế giới.",
+  openGraph: {
+    title: "PakWatch - Trí tuệ nhân tạo trên cổ tay bạn",
+    description: "Khám phá chiếc đồng hồ thông minh theo dõi sức khỏe ứng dụng AI tân tiến nhất thế giới.",
+    url: "https://pakwatch.com",
+    siteName: "PakWatch",
+    locale: "vi_VN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PakWatch - Intelligence on your wrist",
+    description: "Khám phá chiếc đồng hồ thông minh theo dõi sức khỏe ứng dụng AI tân tiến nhất thế giới.",
+  },
 };
 
 export default function RootLayout({
@@ -33,7 +46,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
