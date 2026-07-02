@@ -54,7 +54,7 @@ export function AppleWatch({ scrollProgressRef, ...props }: AppleWatchProps) {
 
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={45}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={40}>
         <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <mesh geometry={nodes.ToJTXgljlhhqitR.geometry} material={materials.LiBdTcnHkZvFfBu} />
           <mesh geometry={nodes.MKkqtRcjcYdQNza.geometry} material={materials.LiBdTcnHkZvFfBu} />

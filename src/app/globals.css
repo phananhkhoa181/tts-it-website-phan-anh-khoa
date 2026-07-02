@@ -20,6 +20,10 @@
   }
 }
 
+html {
+  /* scroll-behavior: smooth removed in favor of Lenis */
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -73,4 +77,3 @@ body {
 .stagger-2 { animation-delay: 120ms; }
 .stagger-3 { animation-delay: 240ms; }
 .stagger-4 { animation-delay: 360ms; }
-
