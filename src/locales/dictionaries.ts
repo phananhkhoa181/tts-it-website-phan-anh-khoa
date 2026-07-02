@@ -4,9 +4,9 @@ export const dictionaries = {
       preorder: "Mua Ngay",
     },
     hero: {
-      title1: "Màn hình luôn sáng.",
-      title2: "Luôn bên bạn.",
-      desc: "Apple Watch Series 5. Nổi bật với màn hình Retina Luôn Sáng, la bàn tích hợp và các tính năng bảo vệ sức khỏe hàng đầu như đo Điện Tâm Đồ (ECG) và cảnh báo nhịp tim.",
+      title1: "Luôn hiển thị.",
+      title2: "Luôn đồng hành.",
+      desc: "Apple Watch Series 5. Nổi bật với màn hình hiển thị 24/7, la bàn tích hợp và các tính năng bảo vệ sức khỏe hàng đầu như đo Điện Tâm Đồ (ECG) và cảnh báo nhịp tim.",
       buyNow: "Mua Ngay",
       discover: "Khám phá Tính năng",
       loading3d: "Đang tải mô hình 3D...",
@@ -71,7 +71,7 @@ export const dictionaries = {
       preorder: "Buy Now",
     },
     hero: {
-      title1: "Always-On Retina.",
+      title1: "Always-On Display.",
       title2: "Always with you.",
       desc: "Apple Watch Series 5. Featuring an Always-On display, a built-in compass, and life-saving health features like the ECG app and heart rate notifications.",
       buyNow: "Buy Now",
