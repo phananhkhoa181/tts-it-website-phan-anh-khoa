@@ -5,6 +5,7 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import { LanguageProvider } from "../context/LanguageContext";
 import TopProgressBar from "../components/TopProgressBar";
 import SmoothScroll from "../components/SmoothScroll";
+import ChatBot from "../components/ChatBot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +61,7 @@ export default function RootLayout({
           <LanguageProvider>
             <SmoothScroll>
               {children}
+              <ChatBot />
             </SmoothScroll>
           </LanguageProvider>
         </ThemeProvider>
