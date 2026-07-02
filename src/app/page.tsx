@@ -7,7 +7,7 @@ import { LanguageToggle } from "../components/LanguageToggle";
 import { useLanguage } from "../context/LanguageContext";
 import { useState, useEffect } from "react";
 import MouseEffect from "../components/MouseEffect";
-import { motion } from "framer-motion";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export default function LandingPage() {
   const { t } = useLanguage();
@@ -25,6 +25,7 @@ export default function LandingPage() {
 
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  useScrollReveal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,12 +82,7 @@ export default function LandingPage() {
           <MouseEffect />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="max-w-2xl"
-              >
+              <div className="reveal max-w-2xl">
                 <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
                   {t.hero.title1} <br />
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-cyan-500 dark:from-indigo-400 dark:to-cyan-400">
@@ -110,7 +106,7 @@ export default function LandingPage() {
                     {t.hero.discover}
                   </button>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Hero Image / 3D Canvas */}
               <div className="relative mx-auto w-full max-w-md lg:max-w-full lg:ml-auto lg:translate-x-12">
@@ -123,13 +119,7 @@ export default function LandingPage() {
         {/* 3. Design & Display */}
         <section className="py-24 bg-indigo-50/60 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto mb-16"
-            >
+            <div className="reveal text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
                 {t.design.title1} <br />
                 <span className="text-indigo-600 dark:text-indigo-400">{t.design.title2}</span>
@@ -137,89 +127,66 @@ export default function LandingPage() {
               <p className="text-xl text-slate-600 dark:text-slate-400">
                 {t.design.desc}
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* 4. Health & Wellness (Bento Grid) */}
         <section id="features" className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="mb-16"
-            >
+            <div className="reveal mb-16">
               <h2 className="text-3xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
                 {t.health.title1} <br />{t.health.title2}
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
                 {t.health.desc}
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: { staggerChildren: 0.15 }
-                }
-              }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Card 1 */}
-              <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="col-span-1 md:col-span-2 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+              <div className="reveal stagger-1 col-span-1 md:col-span-2 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
                 <Heart className="w-12 h-12 text-rose-500 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t.health.ecgTitle}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-lg">
                   {t.health.ecgDesc}
                 </p>
-              </motion.div>
+              </div>
               
               {/* Card 2 */}
-              <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="col-span-1 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+              <div className="reveal stagger-2 col-span-1 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
                 <Droplets className="w-12 h-12 text-cyan-500 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t.health.spo2Title}</h3>
                 <p className="text-slate-600 dark:text-slate-400">
                   {t.health.spo2Desc}
                 </p>
-              </motion.div>
+              </div>
 
               {/* Card 3 */}
-              <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="col-span-1 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+              <div className="reveal stagger-3 col-span-1 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
                 <Moon className="w-12 h-12 text-indigo-500 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t.health.sleepTitle}</h3>
                 <p className="text-slate-600 dark:text-slate-400">
                   {t.health.sleepDesc}
                 </p>
-              </motion.div>
+              </div>
 
               {/* Card 4 */}
-              <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="col-span-1 md:col-span-2 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+              <div className="reveal stagger-4 col-span-1 md:col-span-2 bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
                 <Brain className="w-12 h-12 text-purple-500 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t.health.mentalTitle}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-lg">
                   {t.health.mentalDesc}
                 </p>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* 5. Fitness & Connectivity */}
         <section className="py-24 bg-indigo-50 dark:bg-black text-slate-900 dark:text-white transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-12"
-            >
+            <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <Activity className="w-16 h-16 text-green-500 dark:text-green-400 mb-6" />
                 <h2 className="text-4xl font-bold mb-4">{t.fitness.title}</h2>
@@ -257,33 +224,21 @@ export default function LandingPage() {
                   </li>
                 </ul>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* 6. Technical Specifications */}
         <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
+            <div className="reveal text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-slate-900 dark:text-white">
                 {t.specs.title}
               </h2>
               <p className="text-slate-600 dark:text-slate-400">{t.specs.desc}</p>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm"
-            >
+            <div className="reveal-scale bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
               <ul className="divide-y divide-slate-100 dark:divide-slate-700/50">
                 <li className="flex flex-col sm:flex-row sm:items-center py-6 px-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
                   <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0">{t.specs.screen}</span>
@@ -302,20 +257,14 @@ export default function LandingPage() {
                   <span className="font-semibold text-slate-900 dark:text-white sm:w-2/3">{t.specs.processorDesc}</span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* 7. Newsletter Signup */}
         <section id="newsletter" className="py-24 bg-indigo-600 dark:bg-indigo-950 text-white relative overflow-hidden transition-colors duration-300">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center"
-          >
+          <div className="reveal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <Mail className="w-12 h-12 mx-auto mb-6 text-indigo-200" />
             <h2 className="text-3xl sm:text-5xl font-bold mb-4">{t.newsletter.title}</h2>
             <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto">
@@ -345,7 +294,7 @@ export default function LandingPage() {
                 </button>
               </form>
             )}
-          </motion.div>
+          </div>
         </section>
       </main>
 

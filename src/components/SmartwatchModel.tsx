@@ -12,14 +12,21 @@ function WatchWrapper() {
   const scrollProgressRef = useRef(0);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const maxScroll = Math.max(
-        1,
-        document.body.scrollHeight - window.innerHeight
-      );
-      const progress = window.scrollY / maxScroll;
-      targetRotationY.current = progress * Math.PI * 2;
-      scrollProgressRef.current = progress;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const maxScroll = Math.max(
+            1,
+            document.body.scrollHeight - window.innerHeight
+          );
+          const progress = window.scrollY / maxScroll;
+          targetRotationY.current = progress * Math.PI * 2;
+          scrollProgressRef.current = progress;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -56,7 +63,7 @@ function WatchWrapper() {
 export default function Smartwatch3D() {
   return (
     <div
-      className="w-full h-150 relative"
+      className="w-full h-[450px] sm:h-[500px] lg:h-[600px] relative"
       style={{ touchAction: "none" }}
     >
       <Canvas
