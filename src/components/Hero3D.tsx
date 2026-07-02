@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 // Lazy-load 3D only on desktop
@@ -29,14 +30,14 @@ const WatchSkeleton = () => (
 // Mobile placeholder — real product image, lightweight (no 3D canvas)
 const MobileWatchPlaceholder = () => (
   <div className="w-full h-[360px] flex items-center justify-center">
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img
+    <Image
       src="/apw5.png"
       alt="PakWatch smartwatch"
       width={300}
-      height={300}
+      height={320}
       className="object-contain h-full drop-shadow-2xl"
-      style={{ maxHeight: 320 }}
+      style={{ maxHeight: 320, width: "auto" }}
+      priority
     />
   </div>
 );
