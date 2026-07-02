@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { LanguageProvider } from "../context/LanguageContext";
 import TopProgressBar from "../components/TopProgressBar";
+import SmoothScroll from "../components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,11 +54,13 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem={false}
+          enableSystem
           disableTransitionOnChange
         >
           <LanguageProvider>
-            {children}
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
           </LanguageProvider>
         </ThemeProvider>
       </body>
