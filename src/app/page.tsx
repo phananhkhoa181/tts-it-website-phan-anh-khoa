@@ -1,6 +1,6 @@
 "use client";
 
-import { Brain, Activity, Moon, Droplets, Heart, Zap, Phone, ShieldCheck, Mail, ArrowRight, ArrowUp } from "lucide-react";
+import { Brain, Activity, Moon, Droplets, Heart, Zap, Phone, ShieldCheck, Mail, ArrowRight, ArrowUp, Monitor, Battery, Layers, Cpu } from "lucide-react";
 import Image from "next/image";
 import Hero3D from "../components/Hero3D";
 import { ThemeToggle } from "../components/ThemeToggle";
@@ -43,7 +43,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-indigo-50 via-slate-50 to-white dark:from-indigo-950 dark:via-slate-950 dark:to-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300 relative">
+    <div className="min-h-screen bg-linear-to-b from-indigo-50 via-slate-50 to-white dark:from-indigo-950 dark:via-slate-950 dark:to-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-900 dark:selection:text-indigo-100 lg:transition-colors lg:duration-500 relative">
       {/* 1. Header / Navbar */}
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -112,7 +112,7 @@ export default function LandingPage() {
         </section>
 
         {/* 3. Design & Display */}
-        <section className="pt-24 bg-indigo-50/60 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <section className="pt-24 bg-indigo-50/60 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 lg:transition-colors lg:duration-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="reveal text-center max-w-3xl mx-auto mb-0">
               <h2 className="text-4xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
@@ -144,7 +144,7 @@ export default function LandingPage() {
         </section>
 
         {/* 4. Health & Wellness (Bento Grid) */}
-        <section id="features" className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+        <section id="features" className="py-24 bg-white dark:bg-slate-950 lg:transition-colors lg:duration-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="reveal mb-16">
               <h2 className="text-3xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
@@ -196,7 +196,7 @@ export default function LandingPage() {
         </section>
 
         {/* 5. Fitness & Connectivity */}
-        <section className="py-24 bg-indigo-50 dark:bg-black text-slate-900 dark:text-white transition-colors duration-300">
+        <section className="py-24 bg-indigo-50 dark:bg-black text-slate-900 dark:text-white lg:transition-colors lg:duration-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
@@ -241,7 +241,7 @@ export default function LandingPage() {
         </section>
 
         {/* 6. Technical Specifications */}
-        <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+        <section className="py-24 bg-white dark:bg-slate-950 lg:transition-colors lg:duration-500">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="reveal text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-slate-900 dark:text-white">
@@ -253,19 +253,31 @@ export default function LandingPage() {
             <div className="reveal-scale bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
               <ul className="divide-y divide-slate-100 dark:divide-slate-700/50">
                 <li className="flex flex-col sm:flex-row sm:items-center py-6 px-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
-                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0">{t.specs.screen}</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0 flex items-center gap-3">
+                    <Monitor className="w-5 h-5 text-indigo-500" />
+                    {t.specs.screen}
+                  </span>
                   <span className="font-semibold text-slate-900 dark:text-white sm:w-2/3">{t.specs.screenDesc}</span>
                 </li>
                 <li className="flex flex-col sm:flex-row sm:items-center py-6 px-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
-                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0">{t.specs.battery}</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0 flex items-center gap-3">
+                    <Battery className="w-5 h-5 text-indigo-500" />
+                    {t.specs.battery}
+                  </span>
                   <span className="font-semibold text-slate-900 dark:text-white sm:w-2/3">{t.specs.batteryDesc}</span>
                 </li>
                 <li className="flex flex-col sm:flex-row sm:items-center py-6 px-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
-                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0">{t.specs.material}</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0 flex items-center gap-3">
+                    <Layers className="w-5 h-5 text-indigo-500" />
+                    {t.specs.material}
+                  </span>
                   <span className="font-semibold text-slate-900 dark:text-white sm:w-2/3">{t.specs.materialDesc}</span>
                 </li>
                 <li className="flex flex-col sm:flex-row sm:items-center py-6 px-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
-                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0">{t.specs.processor}</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium sm:w-1/3 mb-1 sm:mb-0 flex items-center gap-3">
+                    <Cpu className="w-5 h-5 text-indigo-500" />
+                    {t.specs.processor}
+                  </span>
                   <span className="font-semibold text-slate-900 dark:text-white sm:w-2/3">{t.specs.processorDesc}</span>
                 </li>
               </ul>
@@ -274,14 +286,15 @@ export default function LandingPage() {
         </section>
 
         {/* 7. Newsletter Signup */}
-        <section id="newsletter" className="py-24 bg-indigo-600 dark:bg-indigo-950 text-white relative overflow-hidden transition-colors duration-300">
+        <section id="newsletter" className="py-24 bg-indigo-600 dark:bg-indigo-950 text-white relative overflow-hidden lg:transition-colors lg:duration-500">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="reveal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <Mail className="w-12 h-12 mx-auto mb-6 text-indigo-200" />
-            <h2 className="text-3xl sm:text-5xl font-bold mb-4">{t.newsletter.title}</h2>
-            <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto">
-              {t.newsletter.desc}
-            </p>
+            <div className="mb-10">
+              <h2 className="text-3xl font-bold sm:text-4xl mb-8 max-w-2xl mx-auto leading-tight">
+                {t.newsletter.desc}
+              </h2>
+            </div>
             
             {subscribed ? (
               <div className="bg-green-500/20 border border-green-400 text-green-100 rounded-2xl p-4 inline-flex items-center gap-2 animate-in fade-in zoom-in duration-300">
@@ -311,7 +324,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors duration-300">
+      <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 lg:transition-colors lg:duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-2xl font-bold tracking-tighter text-indigo-950 dark:text-white">
             PakWatch
