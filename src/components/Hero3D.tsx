@@ -26,33 +26,18 @@ const WatchSkeleton = () => (
   </div>
 );
 
-// Mobile static placeholder — beautiful, lightweight SVG watch illustration
+// Mobile placeholder — real product image, lightweight (no 3D canvas)
 const MobileWatchPlaceholder = () => (
-  <div className="w-full h-[340px] flex items-center justify-center">
-    <div className="relative" style={{ width: 200, height: 260 }}>
-      {/* Watch body */}
-      <div className="absolute inset-x-8 inset-y-12 rounded-[32px] bg-gradient-to-br from-slate-200 via-white to-slate-300 dark:from-slate-600 dark:via-slate-500 dark:to-slate-700 shadow-2xl border border-slate-300/60 dark:border-slate-500/40" />
-      {/* Watch screen */}
-      <div className="absolute inset-x-12 inset-y-16 rounded-[24px] bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden flex flex-col items-center justify-center gap-1 shadow-inner">
-        {/* Time display */}
-        <span className="text-white text-xl font-bold tracking-tight" style={{ fontVariantNumeric: 'tabular-nums' }}>10:09</span>
-        <span className="text-slate-400 text-[9px] uppercase tracking-widest">PakWatch</span>
-        {/* Activity rings (mini) */}
-        <div className="flex gap-1.5 mt-1">
-          <div className="w-4 h-4 rounded-full border-2 border-rose-500 border-t-transparent" style={{ transform: 'rotate(45deg)' }} />
-          <div className="w-4 h-4 rounded-full border-2 border-green-400 border-t-transparent" style={{ transform: 'rotate(90deg)' }} />
-          <div className="w-4 h-4 rounded-full border-2 border-sky-400 border-t-transparent" style={{ transform: 'rotate(135deg)' }} />
-        </div>
-      </div>
-      {/* Top strap */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-10 h-14 rounded-t-2xl bg-gradient-to-b from-slate-300 to-slate-200 dark:from-slate-600 dark:to-slate-500 shadow-md" />
-      {/* Bottom strap */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-10 h-14 rounded-b-2xl bg-gradient-to-b from-slate-200 to-slate-300 dark:from-slate-500 dark:to-slate-600 shadow-md" />
-      {/* Crown button */}
-      <div className="absolute right-6 top-1/2 -translate-y-2 w-2 h-8 rounded-full bg-gradient-to-b from-slate-300 to-slate-400 dark:from-slate-500 dark:to-slate-600 shadow" />
-      {/* Glow effect */}
-      <div className="absolute inset-0 rounded-[40px] bg-indigo-400/10 dark:bg-indigo-400/5 blur-xl" />
-    </div>
+  <div className="w-full h-[360px] flex items-center justify-center">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img
+      src="/apw5.png"
+      alt="PakWatch smartwatch"
+      width={300}
+      height={300}
+      className="object-contain h-full drop-shadow-2xl"
+      style={{ maxHeight: 320 }}
+    />
   </div>
 );
 
