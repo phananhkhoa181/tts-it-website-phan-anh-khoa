@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, User, ArrowUp } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 type Message = {
   role: "user" | "ai";
@@ -102,10 +103,10 @@ export default function ChatBot() {
         {/* Header */}
         <div className="bg-indigo-600 text-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/chatbotAI.png" alt="AI Avatar" className="w-6 h-6 rounded-full object-cover bg-white" />
+            <Image src="/chatbotAI.png" alt="AI Avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover bg-white" />
             <span className="font-semibold">Apple Watch AI</span>
           </div>
-          <button onClick={() => setIsOpen(false)} className="hover:bg-indigo-700 p-1 rounded-full transition-colors">
+          <button onClick={() => setIsOpen(false)} className="hover:bg-indigo-700 p-1 rounded-full transition-colors" aria-label="Đóng cửa sổ chat">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -119,7 +120,7 @@ export default function ChatBot() {
             <div key={idx} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
               {msg.role === "ai" && (
                 <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 bg-white shadow-sm">
-                  <img src="/chatbotAI.png" alt="AI" className="w-full h-full object-cover" />
+                  <Image src="/chatbotAI.png" alt="AI" width={32} height={32} className="w-full h-full object-cover" />
                 </div>
               )}
               <div
@@ -149,7 +150,7 @@ export default function ChatBot() {
           {isLoading && (
             <div className="flex gap-2 justify-start">
               <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 bg-white shadow-sm">
-                <img src="/chatbotAI.png" alt="AI" className="w-full h-full object-cover" />
+                <Image src="/chatbotAI.png" alt="AI" width={32} height={32} className="w-full h-full object-cover" />
               </div>
               <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl rounded-tl-sm p-4 flex gap-1 items-center shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0ms" }}></div>
@@ -176,6 +177,7 @@ export default function ChatBot() {
               onClick={handleSend}
               disabled={isLoading || !input.trim()}
               className="p-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              aria-label="Gửi tin nhắn"
             >
               <Send className="w-4 h-4" />
             </button>
@@ -189,12 +191,12 @@ export default function ChatBot() {
         className={`w-14 h-14 rounded-full shadow-xl transition-transform duration-300 hover:scale-110 active:scale-95 flex items-center justify-center overflow-hidden border-2 ${
           isOpen ? "bg-slate-800 border-slate-700 rotate-90" : "bg-white border-indigo-100 dark:border-slate-700"
         }`}
-        aria-label="Mở chat"
+        aria-label={isOpen ? "Đóng chat" : "Mở chat"}
       >
         {isOpen ? (
           <X className="w-6 h-6 text-white" />
         ) : (
-          <img src="/chatbotAI.png" alt="Chat" className="w-full h-full object-cover" />
+          <Image src="/chatbotAI.png" alt="Chat" width={56} height={56} className="w-full h-full object-cover" priority />
         )}
       </button>
     </div>
