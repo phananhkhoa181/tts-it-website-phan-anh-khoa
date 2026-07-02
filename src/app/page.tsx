@@ -235,7 +235,7 @@ export default function LandingPage() {
                 <span className="font-medium">{t.newsletter.success}</span>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
                 <input 
                   type="email" 
                   value={email}
@@ -246,7 +246,7 @@ export default function LandingPage() {
                 />
                 <button 
                   type="submit"
-                  className="rounded-full bg-white text-indigo-600 dark:bg-indigo-500 dark:text-white px-8 py-3.5 font-bold hover:bg-indigo-50 dark:hover:bg-indigo-400 transition-colors flex items-center justify-center gap-2"
+                  className="rounded-full bg-white text-indigo-600 dark:bg-indigo-500 dark:text-white px-8 py-3.5 font-bold hover:bg-indigo-50 dark:hover:bg-indigo-400 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   {t.newsletter.button} <ArrowRight className="w-4 h-4" />
                 </button>
