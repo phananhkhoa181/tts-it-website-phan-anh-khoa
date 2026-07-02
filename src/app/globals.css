@@ -25,3 +25,52 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ── Scroll-reveal animations (CSS-native, no framer-motion needed) ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Elements start hidden; JS adds .is-visible when they enter viewport */
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+.reveal-fade.is-visible {
+  animation: fadeIn 0.6s ease forwards;
+}
+.reveal-scale.is-visible {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+/* Stagger delays for grid children */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 240ms; }
+.stagger-4 { animation-delay: 360ms; }
+
