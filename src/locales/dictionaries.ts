@@ -4,9 +4,9 @@ export const dictionaries = {
       preorder: "Mua Ngay",
     },
     hero: {
-      title1: "Màn hình luôn sáng.",
-      title2: "Luôn bên bạn.",
-      desc: "Apple Watch Series 5. Nổi bật với màn hình Retina Luôn Sáng, la bàn tích hợp và các tính năng bảo vệ sức khỏe hàng đầu như đo Điện Tâm Đồ (ECG) và cảnh báo nhịp tim.",
+      title1: "Luôn hiển thị.",
+      title2: "Luôn đồng hành.",
+      desc: "Apple Watch Series 5. Nổi bật với màn hình hiển thị 24/7, la bàn tích hợp và các tính năng bảo vệ sức khỏe hàng đầu như đo Điện Tâm Đồ (ECG) và cảnh báo nhịp tim.",
       buyNow: "Mua Ngay",
       discover: "Khám phá Tính năng",
       loading3d: "Đang tải mô hình 3D...",
@@ -62,16 +62,52 @@ export const dictionaries = {
       button: "Đăng ký ngay",
       success: "Cảm ơn bạn! Chúng tôi sẽ sớm liên hệ.",
     },
+    store: {
+      featuresTitle: "Tính năng sản phẩm",
+      descTitle: "Mô tả chi tiết"
+    },
     footer: {
       rights: "© 2026 PakWatch. Phát triển bởi Phan Anh Khoa. Bản quyền đã được bảo hộ.",
     },
+    products: {
+      "B0848F7Z2J": {
+        features: "Sản phẩm Apple Watch Series 5 (GPS + Cellular, 40mm) Stainless Steel Smartwatch (Renewed) của thương hiệu Amazon Renewed với nhiều tính năng nổi bậc, là một sản phẩm được nhiều khách hàng trên thế giới lựa chọn.",
+        description: [
+          "Màn hình Always-On Retina: Màn hình LTPO OLED giúp xem giờ và thông tin quan trọng luôn hiển thị mà không cần nhấc cổ tay.",
+          "La bàn tích hợp: La bàn được tích hợp cung cấp dữ liệu hướng đi và độ cao giúp cải thiện điều hướng và các hoạt động ngoài trời.",
+          "Đo điện tâm đồ và Nhịp tim: Cảm biến tim điện tử hỗ trợ đọc ECG và theo dõi nhịp tim liên tục trực tiếp từ cổ tay.",
+          "Phát hiện té ngã và SOS Khẩn cấp: Các tính năng an toàn có thể phát hiện các cú ngã mạnh và giúp kết nối bạn với các dịch vụ khẩn cấp khi cần thiết.",
+          "Theo dõi hoạt động toàn diện: Theo dõi chuyển động hàng ngày, bài tập và mục tiêu thể hình đồng thời hỗ trợ nhiều chế độ tập luyện."
+        ]
+      },
+      "B082VLCYKN": {
+        features: "Sản phẩm Apple Watch Series 5 (GPS + Cellular, 44MM) - Gold Aluminum Case with Pink Sand Sport Band (Renewed) của thương hiệu Amazon Renewed với nhiều tính năng nổi bậc, là một sản phẩm được nhiều khách hàng trên thế giới lựa chọn.",
+        description: [
+          "Màn hình Always-On Retina: Màn hình LTPO OLED giúp xem giờ và thông tin quan trọng luôn hiển thị mà không cần nhấc cổ tay.",
+          "La bàn tích hợp: La bàn được tích hợp cung cấp dữ liệu hướng đi và độ cao giúp cải thiện điều hướng và các hoạt động ngoài trời.",
+          "Đo điện tâm đồ và Nhịp tim: Cảm biến tim điện tử hỗ trợ đọc ECG và theo dõi nhịp tim liên tục trực tiếp từ cổ tay.",
+          "Phát hiện té ngã và SOS Khẩn cấp: Các tính năng an toàn có thể phát hiện các cú ngã mạnh và giúp kết nối bạn với các dịch vụ khẩn cấp khi cần thiết.",
+          "Theo dõi hoạt động toàn diện: Theo dõi chuyển động hàng ngày, bài tập và mục tiêu thể hình đồng thời hỗ trợ nhiều chế độ tập luyện."
+        ]
+      },
+      "B083M8DP6X": {
+        features: "Sản phẩm Apple Watch Series 5 (GPS, 44MM) - Space Gray Aluminum Case with Black Sport Band (Renewed) của thương hiệu Amazon Renewed với nhiều tính năng nổi bậc, là một sản phẩm được nhiều khách hàng trên thế giới lựa chọn.",
+        description: [
+          "ĐỂ ĐIỆN THOẠI TRONG TÚI: Phiên bản GPS của Apple Watch Series 5 cho phép bạn gọi điện, nhắn tin và nhận chỉ đường từ cổ tay trong khi vẫn để điện thoại trong túi. Thiết bị cung cấp nhiều tùy chọn kết nối bao gồm: Bluetooth, Wi-Fi và NFC để phù hợp với mọi nhu cầu của bạn.",
+          "MÀN HÌNH ALWAYS-ON RETINA: Bạn không cần phải nâng cổ tay hoặc chạm vào màn hình để xem thời gian hoặc thông tin khác vì màn hình không bao giờ ngủ. Bạn chỉ cần liếc qua là có thể xem thời gian hoặc số liệu tập luyện ở ngay vị trí bạn muốn.",
+          "ĐO ĐIỆN TÂM ĐỒ TRÊN CỔ TAY: Với ứng dụng ECG, Apple Watch Series 5 có khả năng tạo ra kết quả ECG tương tự như điện tâm đồ một đạo trình. Đây là một thành tựu quan trọng cho thiết bị đeo để cung cấp dữ liệu cho bác sĩ và sự an tâm cho bạn ở bất cứ đâu trong ngày.",
+          "TẬP LUYỆN KHÔNG NGỪNG: Đạp xe, yoga, bơi lội, tập luyện ngắt quãng cường độ cao... danh sách vẫn tiếp tục. Bất kể môn gì, Apple Watch đều đo lường được. Đặt mục tiêu cụ thể, xem tóm tắt khi bạn hoàn thành và theo dõi tiến trình theo thời gian.",
+          "ĐẮM CHÌM TRONG ÂM NHẠC: Với Apple Music trên cổ tay, bạn có 60 triệu bản nhạc tạo động lực để mang đi khắp mọi nơi. Bạn cũng có thể theo dõi podcast hoặc nghe sách nói. Phát trực tuyến mọi thứ bạn cần ngay từ đồng hồ mà không cần điện thoại."
+        ]
+      }
+    }
   },
   en: {
     nav: {
       preorder: "Buy Now",
     },
     hero: {
-      title1: "Always-On Retina.",
+      title1: "Always-On Display.",
       title2: "Always with you.",
       desc: "Apple Watch Series 5. Featuring an Always-On display, a built-in compass, and life-saving health features like the ECG app and heart rate notifications.",
       buyNow: "Buy Now",
@@ -129,8 +165,44 @@ export const dictionaries = {
       button: "Subscribe",
       success: "Thank you! We'll be in touch soon.",
     },
+    store: {
+      featuresTitle: "Product Features",
+      descTitle: "Description"
+    },
     footer: {
       rights: "© 2026 PakWatch. Developed by Phan Anh Khoa. All rights reserved.",
     },
+    products: {
+      "B0848F7Z2J": {
+        features: "The Apple Watch Series 5 (GPS + Cellular, 40mm) Stainless Steel Smartwatch (Renewed) by Amazon Renewed comes with outstanding features, making it a popular choice for customers worldwide.",
+        description: [
+          "Always-On Retina Display: LTPO OLED display keeps the time and important information visible without raising your wrist.",
+          "Built-In Compass: Integrated compass provides heading, direction, and elevation data for improved navigation and outdoor activities.",
+          "ECG and Heart Rate Monitoring: Electrical heart sensor supports ECG readings and continuous heart rate tracking directly from the wrist.",
+          "Fall Detection and Emergency SOS: Safety features can detect hard falls and help connect you with emergency services when needed.",
+          "Comprehensive Activity Tracking: Monitors daily movement, workouts, and fitness goals while supporting multiple exercise modes."
+        ]
+      },
+      "B082VLCYKN": {
+        features: "The Apple Watch Series 5 (GPS + Cellular, 44MM) - Gold Aluminum Case with Pink Sand Sport Band (Renewed) by Amazon Renewed comes with outstanding features, making it a popular choice for customers worldwide.",
+        description: [
+          "Always-On Retina Display: LTPO OLED display keeps the time and important information visible without raising your wrist.",
+          "Built-In Compass: Integrated compass provides heading, direction, and elevation data for improved navigation and outdoor activities.",
+          "ECG and Heart Rate Monitoring: Electrical heart sensor supports ECG readings and continuous heart rate tracking directly from the wrist.",
+          "Fall Detection and Emergency SOS: Safety features can detect hard falls and help connect you with emergency services when needed.",
+          "Comprehensive Activity Tracking: Monitors daily movement, workouts, and fitness goals while supporting multiple exercise modes."
+        ]
+      },
+      "B083M8DP6X": {
+        features: "The Apple Watch Series 5 (GPS, 44MM) - Space Gray Aluminum Case with Black Sport Band (Renewed) by Amazon Renewed comes with outstanding features, making it a popular choice for customers worldwide.",
+        description: [
+          "LEAVE YOUR PHONE IN YOUR POCKET: Apple Watch Series 5 GPS Model lets you call, text, and get directions from your wrist, while leaving your phone in your pocket. It offers multiple connectivity options, including: Bluetooth, Wi-Fi, and NFC to suit all of your possible needs.",
+          "ALWAYS-ON RETINA DISPLAY: You no longer need to raise your wrist or touch the screen to see the time or other information on your watch face, because the display never sleeps. All you need to do is glance to find the time or your workout metrics right there where you want them.",
+          "ECG ON YOUR WRIST: With the ECG app, Apple Watch Series 5 is capable of generating an ECG similar to a single-lead electrocardiogram. It's a momentous achievement for a wearable device that can provide data for doctors and peace of mind for you wherever may be during the day.",
+          "WORKOUTS THAT DON'T QUIT: Cycling, yoga, swimming, high-intensity interval training...the list goes on. You name it, Apple Watch measures it. Set workout-specific goals, see full summaries when you're done, and track how you're trending over time in the Activity app on your iPhone.",
+          "GET LOST IN YOUR MUSIC: With Apple Music on your wrist, you've got 60 million tracks of musical motivation to take you places. You can also catch up on the latest podcasts or listen to an audiobook if that's your thing. Stream everything you need right from your watch, even without your phone."
+        ]
+      }
+    }
   },
 };

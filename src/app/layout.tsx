@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { LanguageProvider } from "../context/LanguageContext";
+import { StoreProvider } from "../context/StoreContext";
+import Toast from "../components/store/Toast";
 import TopProgressBar from "../components/TopProgressBar";
 import SmoothScroll from "../components/SmoothScroll";
 import ChatBot from "../components/ChatBot";
@@ -59,19 +61,21 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+      <body className="min-h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 lg:transition-colors lg:duration-500">
         <TopProgressBar />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
-          disableTransitionOnChange
         >
           <LanguageProvider>
-            <SmoothScroll>
-              {children}
-              <ChatBot />
-            </SmoothScroll>
+            <StoreProvider>
+              <Toast />
+              <SmoothScroll>
+                {children}
+                <ChatBot />
+              </SmoothScroll>
+            </StoreProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
