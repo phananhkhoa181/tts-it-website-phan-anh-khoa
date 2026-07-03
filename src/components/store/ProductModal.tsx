@@ -107,15 +107,16 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
           {/* Action Buttons moved to left side */}
           <div className="flex gap-4 mt-6 pt-4 border-t border-slate-200 dark:border-slate-700/50">
-            <button 
+            <button
               onClick={() => {
                 addToCart(product.id);
                 handleClose();
               }}
-              className="flex-1 flex items-center justify-center gap-2 py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg transform active:scale-95"
+              className="flex-1 bg-indigo-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2"
             >
               <ShoppingBag className="w-5 h-5" />
-              Thêm vào giỏ
+
+              {t.store?.addToCart || "Thêm vào giỏ"}
             </button>
             <button 
               onClick={() => toggleWishlist(product.id)}
@@ -153,21 +154,21 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <div className="space-y-6 mb-8 flex-grow">
             <div>
               <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                {/* @ts-ignore */}
+
                 {t.store?.featuresTitle || "Features"}
               </h4>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
-                {/* @ts-ignore */}
+
                 {t.products?.[product.id]?.features}
               </p>
             </div>
             <div>
               <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
-                {/* @ts-ignore */}
+
                 {t.store?.descTitle || "Description"}
               </h4>
               <ul className="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
-                {/* @ts-ignore */}
+
                 {t.products?.[product.id]?.description?.map((point: string, idx: number) => (
                   <li key={idx}>{point}</li>
                 ))}

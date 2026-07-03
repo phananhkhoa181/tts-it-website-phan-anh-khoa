@@ -64,7 +64,24 @@ export const dictionaries = {
     },
     store: {
       featuresTitle: "Tính năng sản phẩm",
-      descTitle: "Mô tả chi tiết"
+      descTitle: "Mô tả chi tiết",
+      addToCart: "Thêm vào giỏ"
+    },
+    storeSection: {
+      title: "Bộ Sưu Tập Của Chúng Tôi",
+      desc: "Chọn phiên bản Apple Watch phù hợp với phong cách của bạn.",
+      addBtn: "Thêm"
+    },
+    sidebar: {
+      title: "Cửa hàng",
+      tabCart: "Giỏ hàng",
+      tabWishlist: "Yêu thích",
+      tabRecent: "Đã xem",
+      emptyCart: "Giỏ hàng của bạn đang trống",
+      emptyWishlist: "Chưa có sản phẩm yêu thích",
+      emptyRecent: "Bạn chưa xem sản phẩm nào",
+      total: "Tổng cộng",
+      checkout: "Tiến hành thanh toán"
     },
     footer: {
       rights: "© 2026 PakWatch. Phát triển bởi Phan Anh Khoa. Bản quyền đã được bảo hộ.",
@@ -167,7 +184,24 @@ export const dictionaries = {
     },
     store: {
       featuresTitle: "Product Features",
-      descTitle: "Description"
+      descTitle: "Description",
+      addToCart: "Add to Cart"
+    },
+    storeSection: {
+      title: "Our Collection",
+      desc: "Choose the Apple Watch model that fits your style.",
+      addBtn: "Add"
+    },
+    sidebar: {
+      title: "Store",
+      tabCart: "Cart",
+      tabWishlist: "Wishlist",
+      tabRecent: "Recent",
+      emptyCart: "Your cart is empty",
+      emptyWishlist: "Your wishlist is empty",
+      emptyRecent: "You haven't viewed any products yet",
+      total: "Total",
+      checkout: "Proceed to Checkout"
     },
     footer: {
       rights: "© 2026 PakWatch. Developed by Phan Anh Khoa. All rights reserved.",

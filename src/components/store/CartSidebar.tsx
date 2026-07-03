@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, ShoppingBag, Heart, Clock, Trash2, Plus, Minus } from 'lucide-react';
+import { Heart, ShoppingBag, Clock, Trash2, Plus, Minus, X } from 'lucide-react';
 import { useStore } from '../../context/StoreContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { products } from '../../data/products';
 
 export default function CartSidebar() {
@@ -19,6 +20,7 @@ export default function CartSidebar() {
     activeTab,
     setActiveTab
   } = useStore();
+  const { t } = useLanguage();
   
   const cartTotal = cart.reduce((total, item) => total + (item.product.priceValue * item.quantity), 0);
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -39,7 +41,10 @@ export default function CartSidebar() {
         
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-800">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Cửa hàng</h2>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+
+            {t.sidebar?.title || "Cửa hàng"}
+          </h2>
           <button 
             onClick={() => setIsSidebarOpen(false)}
             className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors"
@@ -54,7 +59,9 @@ export default function CartSidebar() {
             onClick={() => setActiveTab('cart')}
             className={`relative flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${activeTab === 'cart' ? 'bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'}`}
           >
-            <ShoppingBag className="w-4 h-4" /> Giỏ hàng
+            <ShoppingBag className="w-4 h-4" /> 
+
+            {t.sidebar?.tabCart || "Giỏ hàng"}
             {cartCount > 0 && (
               <span className="absolute top-1 right-2 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full">
                 {cartCount}
@@ -65,7 +72,9 @@ export default function CartSidebar() {
             onClick={() => setActiveTab('wishlist')}
             className={`relative flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${activeTab === 'wishlist' ? 'bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'}`}
           >
-            <Heart className="w-4 h-4" /> Yêu thích
+            <Heart className="w-4 h-4" /> 
+
+            {t.sidebar?.tabWishlist || "Yêu thích"}
             {wishlistCount > 0 && (
               <span className="absolute top-1 right-2 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full">
                 {wishlistCount}
@@ -76,7 +85,9 @@ export default function CartSidebar() {
             onClick={() => setActiveTab('recent')}
             className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${activeTab === 'recent' ? 'bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'}`}
           >
-            <Clock className="w-4 h-4" /> Đã xem
+            <Clock className="w-4 h-4" /> 
+
+            {t.sidebar?.tabRecent || "Đã xem"}
           </button>
         </div>
 
@@ -89,7 +100,10 @@ export default function CartSidebar() {
               {cart.length === 0 ? (
                 <div className="text-center py-10 text-slate-500 dark:text-slate-400">
                   <ShoppingBag className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                  <p>Giỏ hàng của bạn đang trống</p>
+                  <p>
+        
+                    {t.sidebar?.emptyCart || "Giỏ hàng của bạn đang trống"}
+                  </p>
                 </div>
               ) : (
                 cart.map(item => (
@@ -124,7 +138,10 @@ export default function CartSidebar() {
               {wishlist.length === 0 ? (
                 <div className="text-center py-10 text-slate-500 dark:text-slate-400">
                   <Heart className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                  <p>Chưa có sản phẩm yêu thích</p>
+                  <p>
+        
+                    {t.sidebar?.emptyWishlist || "Chưa có sản phẩm yêu thích"}
+                  </p>
                 </div>
               ) : (
                 wishlist.map(id => {
@@ -155,7 +172,10 @@ export default function CartSidebar() {
               {recentlyViewed.length === 0 ? (
                 <div className="text-center py-10 text-slate-500 dark:text-slate-400">
                   <Clock className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                  <p>Bạn chưa xem sản phẩm nào</p>
+                  <p>
+        
+                    {t.sidebar?.emptyRecent || "Bạn chưa xem sản phẩm nào"}
+                  </p>
                 </div>
               ) : (
                 recentlyViewed.map(id => {
@@ -182,13 +202,17 @@ export default function CartSidebar() {
         {activeTab === 'cart' && cart.length > 0 && (
           <div className="p-6 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-slate-500 dark:text-slate-400 font-medium">Tổng cộng</span>
+              <span className="text-slate-500 dark:text-slate-400 font-medium">
+    
+                {t.sidebar?.total || "Tổng cộng"}
+              </span>
               <span className="text-xl font-bold text-slate-900 dark:text-white">
                 {cartTotal.toLocaleString('vi-VN')}đ
               </span>
             </div>
             <button className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg transform active:scale-95">
-              Tiến hành thanh toán
+  
+              {t.sidebar?.checkout || "Tiến hành thanh toán"}
             </button>
           </div>
         )}
