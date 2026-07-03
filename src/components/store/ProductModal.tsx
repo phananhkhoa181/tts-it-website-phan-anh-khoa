@@ -158,8 +158,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 {t.store?.featuresTitle || "Features"}
               </h4>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
-
-                {t.products?.[product.id]?.features}
+                {t.products?.[product.id as keyof typeof t.products]?.features}
               </p>
             </div>
             <div>
@@ -168,8 +167,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 {t.store?.descTitle || "Description"}
               </h4>
               <ul className="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
-
-                {t.products?.[product.id]?.description?.map((point: string, idx: number) => (
+                {t.products?.[product.id as keyof typeof t.products]?.description?.map((point: string, idx: number) => (
                   <li key={idx}>{point}</li>
                 ))}
               </ul>
