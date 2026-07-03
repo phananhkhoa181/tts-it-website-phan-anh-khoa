@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { LanguageProvider } from "../context/LanguageContext";
+import { StoreProvider } from "../context/StoreContext";
+import Toast from "../components/store/Toast";
 import TopProgressBar from "../components/TopProgressBar";
 import SmoothScroll from "../components/SmoothScroll";
 import ChatBot from "../components/ChatBot";
@@ -67,10 +69,13 @@ export default function RootLayout({
           enableSystem
         >
           <LanguageProvider>
-            <SmoothScroll>
-              {children}
-              <ChatBot />
-            </SmoothScroll>
+            <StoreProvider>
+              <Toast />
+              <SmoothScroll>
+                {children}
+                <ChatBot />
+              </SmoothScroll>
+            </StoreProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
