@@ -49,12 +49,14 @@ export default function StoreSection() {
                   <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button 
                       onClick={(e) => { e.stopPropagation(); toggleWishlist(product.id); }}
+                      aria-label="Thêm vào yêu thích"
                       className="p-3 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-slate-900 dark:text-white hover:bg-white dark:hover:bg-slate-700 hover:text-red-500 transition-colors shadow-sm"
                     >
                       <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
                     </button>
                     <button 
                       onClick={(e) => { e.stopPropagation(); handleProductClick(product); }}
+                      aria-label="Xem chi tiết"
                       className="p-3 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-slate-900 dark:text-white hover:bg-white dark:hover:bg-slate-700 hover:text-indigo-500 transition-colors shadow-sm"
                     >
                       <Eye className="w-5 h-5" />
