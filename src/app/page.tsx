@@ -2,6 +2,7 @@
 
 import { Brain, Activity, Moon, Droplets, Heart, Zap, Phone, ShieldCheck, Mail, ArrowRight, ArrowUp, Monitor, Battery, Layers, Cpu } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Hero3D from "../components/Hero3D";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { LanguageToggle } from "../components/LanguageToggle";
@@ -160,7 +161,28 @@ export default function LandingPage() {
               {/* Glow background for light mode so white band doesn't blend in */}
               <div className="absolute top-1/4 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-indigo-200/50 dark:hidden blur-3xl rounded-full -z-10"></div>
               
-              <div className="w-[280px] sm:w-[400px] md:w-[500px] h-[224px] sm:h-[320px] md:h-[400px] overflow-hidden relative z-10">
+              {/* Desktop version with Framer Motion scroll animation */}
+              <div className="hidden md:block w-[500px] h-[400px] overflow-hidden relative z-10">
+                <motion.div 
+                  initial={{ y: 150, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="w-full h-full"
+                >
+                  <Image 
+                    src="/awp5forward.png" 
+                    alt="Apple Watch Series 5 Design" 
+                    width={500} 
+                    height={500} 
+                    className="w-full h-auto drop-shadow-2xl" 
+                    priority
+                  />
+                </motion.div>
+              </div>
+
+              {/* Mobile version without animation to ensure max performance */}
+              <div className="md:hidden w-[280px] sm:w-[400px] h-[224px] sm:h-[320px] overflow-hidden relative z-10">
                 <Image 
                   src="/awp5forward.png" 
                   alt="Apple Watch Series 5 Design" 

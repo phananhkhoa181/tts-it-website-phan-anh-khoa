@@ -5,10 +5,12 @@ import Image from 'next/image';
 import { Heart, ShoppingBag, Eye } from 'lucide-react';
 import { products, Product } from '../../data/products';
 import { useStore } from '../../context/StoreContext';
+import { useLanguage } from '../../context/LanguageContext';
 import ProductModal from './ProductModal';
 
 export default function StoreSection() {
   const { toggleWishlist, wishlist, addToCart, addRecentlyViewed } = useStore();
+  const { t } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const handleProductClick = (product: Product) => {
@@ -21,10 +23,12 @@ export default function StoreSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-4 text-slate-900 dark:text-white">
-            Bộ Sưu Tập Của Chúng Tôi
+
+            {t.storeSection?.title || "Bộ Sưu Tập Của Chúng Tôi"}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Chọn phiên bản Apple Watch phù hợp với phong cách của bạn.
+
+            {t.storeSection?.desc || "Chọn phiên bản Apple Watch phù hợp với phong cách của bạn."}
           </p>
         </div>
 
@@ -92,7 +96,8 @@ export default function StoreSection() {
                       className="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-medium hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white transition-colors"
                     >
                       <ShoppingBag className="w-4 h-4" />
-                      <span>Thêm</span>
+          
+                      <span>{t.storeSection?.addBtn || "Thêm"}</span>
                     </button>
                   </div>
                 </div>
