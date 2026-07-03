@@ -6,12 +6,17 @@ import Hero3D from "../components/Hero3D";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { useLanguage } from "../context/LanguageContext";
+import StoreSection from "../components/store/StoreSection";
+import CartSidebar from "../components/store/CartSidebar";
+import { useStore } from "../context/StoreContext";
+import { ShoppingBag, Heart as HeartIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 import MouseEffect from "../components/MouseEffect";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export default function LandingPage() {
   const { t } = useLanguage();
+  const { cartCount, wishlistCount, setIsSidebarOpen, setActiveTab } = useStore();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -58,16 +63,42 @@ export default function LandingPage() {
               PakWatch
             </span>
           </div>
-          <nav className="flex items-center gap-3 sm:gap-4">
-            <LanguageToggle />
-            <ThemeToggle />
-            <button 
-              onClick={() => scrollToSection("newsletter")}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-colors shadow-sm hover:shadow-md"
-            >
-              {t.nav.preorder}
-            </button>
-          </nav>
+            <div className="flex items-center gap-4">
+              <LanguageToggle />
+              <ThemeToggle />
+              <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => {
+                    setIsSidebarOpen(true);
+                    setActiveTab('wishlist');
+                  }}
+                  className="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  aria-label="Wishlist"
+                >
+                  <HeartIcon className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                  {wishlistCount > 0 && (
+                    <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white dark:border-slate-950">
+                      {wishlistCount}
+                    </span>
+                  )}
+                </button>
+                <button 
+                  onClick={() => {
+                    setIsSidebarOpen(true);
+                    setActiveTab('cart');
+                  }}
+                  className="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  aria-label="Cart"
+                >
+                  <ShoppingBag className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                  {cartCount > 0 && (
+                    <span className="absolute top-0 right-0 w-4 h-4 bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white dark:border-slate-950">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+              </div>
+            </div>
         </div>
       </header>
 
@@ -285,42 +316,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 7. Newsletter Signup */}
-        <section id="newsletter" className="py-24 bg-indigo-600 dark:bg-indigo-950 text-white relative overflow-hidden lg:transition-colors lg:duration-500">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-          <div className="reveal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <Mail className="w-12 h-12 mx-auto mb-6 text-indigo-200" />
-            <div className="mb-10">
-              <h2 className="text-3xl font-bold sm:text-4xl mb-8 max-w-2xl mx-auto leading-tight">
-                {t.newsletter.desc}
-              </h2>
-            </div>
-            
-            {subscribed ? (
-              <div className="bg-green-500/20 border border-green-400 text-green-100 rounded-2xl p-4 inline-flex items-center gap-2 animate-in fade-in zoom-in duration-300">
-                <ShieldCheck className="w-5 h-5" />
-                <span className="font-medium">{t.newsletter.success}</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-                <input 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t.newsletter.placeholder}
-                  required
-                  className="flex-1 rounded-full px-6 py-3.5 bg-white/10 border border-white/20 text-white placeholder:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-                />
-                <button 
-                  type="submit"
-                  className="rounded-full bg-white text-indigo-600 dark:bg-indigo-500 dark:text-white px-8 py-3.5 font-bold hover:bg-indigo-50 dark:hover:bg-indigo-400 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
-                >
-                  {t.newsletter.button} <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-            )}
-          </div>
-        </section>
+        {/* Store Section instead of Newsletter */}
+        <StoreSection />
       </main>
 
       {/* Footer */}
@@ -334,6 +331,8 @@ export default function LandingPage() {
           </p>
         </div>
       </footer>
+
+      <CartSidebar />
     </div>
   );
 }
