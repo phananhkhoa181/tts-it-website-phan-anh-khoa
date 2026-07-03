@@ -8,7 +8,7 @@ import { useStore } from '../../context/StoreContext';
 import ProductModal from './ProductModal';
 
 export default function StoreSection() {
-  const { toggleWishlist, addToWishlist, wishlist, addToCart, addRecentlyViewed } = useStore();
+  const { toggleWishlist, wishlist, addToCart, addRecentlyViewed } = useStore();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const handleProductClick = (product: Product) => {
